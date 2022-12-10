@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Jackpot</title>
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+<div class="container bg-dark" style="margin-top: 50px">
+    <div class="row">
+        <div class="col-md-6 text-warning">
+            <form id="betInput" class="form-inline">
+                <div class="form-group">
+                    <label for="casinoOperatorName">Enter casino operator:</label>
+                    <input type="text" id="casinoOperatorName" class="form-control"
+                           placeholder="Casino operator`s name here">
+                </div>
+                <div class="form-group">
+                    <label for="amount">Enter bet amount:</label>
+                    <input type="text" id="amount" class="form-control" placeholder="Bet amount here">
+                </div>
+                <div class="form-group">
+                    <label for="takePlayerUsername">Enter player`s username:</label>
+                    <input type="text" id="takePlayerUsername" class="form-control" placeholder="Player`s id here ">
+                </div>
+                <button id="sendBet" class="btn btn-info" type="button">Bet</button>
+            </form>
+
+            <div>
+                <h2 id="error" class="text-danger"></h2>
+            </div>
+        </div>
+
+        <div class="col-md-6 row bg-dark">
+            <div class="col-md-12 border-primary">
+                <h1 class="text-primary">Player session:</h1>
+                <p class="text-primary" id="operatorId"></p>
+                <p class="text-primary" id="levelAmounts"></p>
+                <p class="text-primary" id="playerId"></p>
+                <p class="text-primary" id="playerBalance"></p>
+            </div>
+            <div class="col-md-12 bg-dark border-warning">
+                <h1 class="text-warning">Jackpot levels amounts:</h1>
+                <table id="OperatorJackpotsInfoTable" class="table text-warning">
+                    <tbody id="OperatorJackpotsInfo">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

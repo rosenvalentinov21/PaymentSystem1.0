@@ -4,16 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import tu.st.paymentsystem.model.card.CreditCard;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Student {
+public class Admin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,14 +29,11 @@ public class Student {
     @Column(name = "boarding_house")
     private int boardingHouse;
 
+    @Column(name = "password")
+    private String password;
 
-    @Column(name = "faculty_id")
-    private long facultyId;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @OneToOne
-    @NonNull
-    private CreditCard creditCard;
-
-    @OneToMany
-    private List<PaymentEvent> unpaidEvents;
+//Insert into admin (id,first_name, last_name, boarding_house,password, phone_number) values (1,'rosen', 'ivanov', 54,1234321, '0884010590');
 }
