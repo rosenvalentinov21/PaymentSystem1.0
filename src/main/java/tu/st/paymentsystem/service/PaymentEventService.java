@@ -9,16 +9,20 @@ import javax.persistence.PersistenceException;
 
 @Service
 public class PaymentEventService {
-    @Autowired
-    private PaymentEventRepository paymentEventRepository;
 
-    public PaymentEvent save(final PaymentEvent paymentEvent) {
+    private final PaymentEventRepository paymentEventRepository;
+
+    @Autowired
+    public PaymentEventService(final PaymentEventRepository paymentEventRepository) {
+        this.paymentEventRepository = paymentEventRepository;
+    }
+
+    public void create(final PaymentEvent paymentEvent) {
         try {
-            return paymentEventRepository.save(paymentEvent);
+            paymentEventRepository.save(paymentEvent);
         } catch (PersistenceException e) {
             throw new PersistenceException("There was a problem with persistence!");
         }
-
     }
 
 }

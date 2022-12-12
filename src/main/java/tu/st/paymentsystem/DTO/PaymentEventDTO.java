@@ -5,8 +5,7 @@ import lombok.Data;
 import java.sql.Timestamp;
 
 @Data
-public class EventDTO {
-    private Long id;
+public class PaymentEventDTO {
 
     private double amount;
 

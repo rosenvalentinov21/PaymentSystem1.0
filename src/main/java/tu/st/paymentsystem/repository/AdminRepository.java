@@ -7,5 +7,5 @@ import tu.st.paymentsystem.model.Admin;
 @Repository
 public interface AdminRepository extends JpaRepository<Admin, Long> {
 
-    public Admin findAdminByPassword(String password);
+    Admin findAdminByPassword(String password);
 }

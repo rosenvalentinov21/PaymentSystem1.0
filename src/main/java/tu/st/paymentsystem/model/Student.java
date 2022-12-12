@@ -17,22 +17,15 @@ public class Student {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
-
-    @Column(name = "first_name")
     @NonNull
     private String firstName;
 
-    @Column(name = "last_name")
     @NonNull
     private String lastName;
 
-    @Column(name = "boarding_house")
     private int boardingHouse;
 
-
-    @Column(name = "faculty_id")
     private long facultyId;
 
     @OneToOne
