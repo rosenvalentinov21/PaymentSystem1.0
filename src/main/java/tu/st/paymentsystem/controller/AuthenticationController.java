@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import tu.st.paymentsystem.config.JwtUtil;
+import tu.st.paymentsystem.dao.UserDao;
 
 @RestController
 @RequestMapping("/auth")
@@ -18,7 +19,7 @@ import tu.st.paymentsystem.config.JwtUtil;
 public class AuthenticationController {
 
     private final AuthenticationManager authenticationManager;
-    private final UserDetailsService userDetailsService;
+    private final UserDao userDao;
     private final JwtUtil jwtUtil;
     @PostMapping("/authenticate")
     public ResponseEntity<String> authenticate(
@@ -27,7 +28,7 @@ public class AuthenticationController {
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(request.getEmail(),request.getPassword())
         );
-        final UserDetails user = userDetailsService.loadUserByUsername(request.getEmail());
+        final UserDetails user = userDao.findUserByEmail(request.getEmail());
         if(user != null)
         {
             return ResponseEntity.ok(jwtUtil.generateToken(user));
