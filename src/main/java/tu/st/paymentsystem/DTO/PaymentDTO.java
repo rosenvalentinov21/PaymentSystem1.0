@@ -10,4 +10,5 @@ public class PaymentDTO {
 
     private Long id;
     private List<PaymentEvent> events;
+    private int boardingHouse;
 }

@@ -14,15 +14,6 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    public boolean addGlobalPaymentEvent(final PaymentEvent paymentEvent) {
-        final List<Student> allStudents = studentRepository.getAll();
-
-        for (Student s : allStudents) {
-            s.getUnpaidEvents().add(paymentEvent);
-        }
-        return true;
-    }
-
     public void removePaid(final Long id, final List<PaymentEvent> paidEvents) {
         final Student student = studentRepository.findById(id)
                 .orElseThrow(() -> new NonExistingEntityException(""));
@@ -37,5 +28,9 @@ public class StudentService {
         }
 
         student.setUnpaidEvents(allEvents);
+    }
+
+    public void addStudent(final Student student){
+        studentRepository.save(student);
     }
 }

@@ -33,10 +33,15 @@ public class AdminService {
     }
 
     public void addGlobalPaymentEvent(final PaymentEvent paymentEvent) {
-        final List<Student> allStudents = studentRepository.getAll();
+        final List<Student> allStudents = studentRepository.getAllByBoardingHouse(paymentEvent.getBoardingHouse());
 
         for (Student s : allStudents) {
             s.getUnpaidEvents().add(paymentEvent);
         }
+    }
+
+    public List<PaymentEvent> checkStudentStatus(final Long facultyNumber){
+        final Student student = studentRepository.findByFacultyId(facultyNumber);
+        return student.getUnpaidEvents();
     }
 }

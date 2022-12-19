@@ -24,6 +24,9 @@ public class PaymentEvent {
     @Column
     private Timestamp due;
 
+    @Column
+    private int boardingHouse;
+
     public PaymentEvent(double amount, Timestamp due) {
     }
 }

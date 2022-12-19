@@ -34,4 +34,7 @@ public class Student {
 
     @OneToMany
     private List<PaymentEvent> unpaidEvents;
+
+    public Student(String firstName, String lastName, int boardingHouse, long facultyId, CreditCard creditCard, List<PaymentEvent> unpaidEvents) {
+    }
 }
