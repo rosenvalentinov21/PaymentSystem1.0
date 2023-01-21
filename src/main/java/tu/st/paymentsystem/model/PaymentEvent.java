@@ -25,8 +25,13 @@ public class PaymentEvent {
     private Timestamp due;
 
     @Column
+    private boolean paid;
+
+    @Column
     private int boardingHouse;
 
     public PaymentEvent(double amount, Timestamp due) {
+        this.amount = amount;
+        this.due = due;
     }
 }
