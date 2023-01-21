@@ -10,4 +10,5 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     List<Student> getAllByBoardingHouse(int boardinghouse);
     Student findByFacultyId(long facultyId);
+    List<Student> getAllByFirstNameNotNull();
 }

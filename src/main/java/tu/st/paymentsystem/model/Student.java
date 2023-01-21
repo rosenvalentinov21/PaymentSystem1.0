@@ -37,4 +37,10 @@ public class Student {
 
     public Student(String firstName, String lastName, int boardingHouse, long facultyId, CreditCard creditCard, List<PaymentEvent> unpaidEvents) {
     }
+
+    public Student(String firstName, String lastName, List<PaymentEvent> unpaidEvents) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.unpaidEvents = unpaidEvents;
+    }
 }
